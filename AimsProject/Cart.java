@@ -13,6 +13,47 @@ public class Cart {
             System.out.println(disc.getTitle()+" has been added!");
         } else System.out.println("Cannot add more DVDs! The cart is almost full.");
     }
+
+    public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {
+        for (DigitalVideoDisc dvd : dvdList) {
+            if (qtyOrdered < MAX_NUMBERS_ORDERED) {
+                itemsOrdered[qtyOrdered] = dvd;
+                qtyOrdered++;
+                System.out.println(dvd.getTitle() + " has been added!");
+            } else {
+                System.out.println("Cannot add more DVDs! The cart is almost full.");
+                break;
+            }
+        }
+    }
+    
+   // Nạp chồng: Thêm nhiều DVD bằng danh sách tham số tùy ý (varargs)
+    public void addDigitalVideoDisc(DigitalVideoDisc... dvds) {
+        for (DigitalVideoDisc dvd : dvds) {
+            if (qtyOrdered < MAX_NUMBERS_ORDERED) {
+                itemsOrdered[qtyOrdered] = dvd;
+                qtyOrdered++;
+                System.out.println(dvd.getTitle() + " has been added!");
+            } else {
+                System.out.println("Cannot add more DVDs! The cart is almost full.");
+                break;
+            }
+        }
+    }
+
+    // Nạp chồng: Thêm hai DVD
+    public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
+        if (qtyOrdered + 2 <= MAX_NUMBERS_ORDERED) {
+            itemsOrdered[qtyOrdered] = dvd1;
+            qtyOrdered++;
+            itemsOrdered[qtyOrdered] = dvd2;
+            qtyOrdered++;
+            System.out.println(dvd1.getTitle() + " and " + dvd2.getTitle() + " have been added!");
+        } else {
+            System.out.println("Cannot add both DVDs! The cart does not have enough space.");
+        }
+    }
+    
     public void removeDigitalVideoDisc(DigitalVideoDisc disc){
 		if(itemsOrdered[0] ==  null) {
             System.out.println("[ERROR] Your cart is empty!");
