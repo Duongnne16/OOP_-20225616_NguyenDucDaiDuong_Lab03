@@ -27,9 +27,25 @@ public class TestPassingParameter {
         dvd.setTitle(title);
         return new DigitalVideoDisc(oldTitle);
     }
+    class DigitalVideoDisc {
+        private String title;
+    
+        public DigitalVideoDisc(String title) {
+            this.title = title;
+        }
+    
+        public String getTitle() {
+            return title;
+        }
+    
+        public void setTitle(String title) {
+            this.title = title;
+        }
+    }
+    
 }
 
-class DigitalVideoDisc {
+public class DigitalVideoDisc {
     private String title;
 
     public DigitalVideoDisc(String title) {
